@@ -1,11 +1,20 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { loginUser } from "../../actions/auth";
+import PropTypes from "prop-types";
 
-const Login = () => {
+const Login = ({ auth: { isAuthenticated }, loginUser, history }) => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      history.push("/dashboard");
+    }
+  }, [isAuthenticated, history]);
 
   const { email, password } = formData;
 
@@ -16,11 +25,11 @@ const Login = () => {
   const onSubmit = (e) => {
     e.preventDefault();
 
+    loginUser(email, password);
     setFormData({
       email: "",
       password: "",
     });
-    console.log("success");
   };
 
   return (
@@ -62,4 +71,13 @@ const Login = () => {
   );
 };
 
-export default Login;
+Login.propTypes = {
+  loginUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+});
+
+export default connect(mapStateToProps, { loginUser })(Login);
