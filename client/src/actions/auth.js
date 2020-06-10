@@ -77,6 +77,7 @@ export const loginUser = (email, password) => async (dispatch) => {
 
     dispatch({ type: LOGIN_SUCCESS, payload: res.data });
     dispatch(loadUser());
+    dispatch(setAlert('We glad to have you back','success', 2500));
   } catch (error) {
     const errors = error.response.data.errors;
 

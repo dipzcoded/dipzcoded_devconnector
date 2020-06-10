@@ -15,7 +15,10 @@ import Dashboard from "./component/dashboard/Dashboard";
 import setAuthToken from "./utilis/setAuthToken";
 import CreateProfile from "./component/profile-form/CreateProfile";
 import EditProfile from "./component/profile-form/EditProfile";
+import AddExperience from './component/profile-form/AddExperience';
+import AddEducation from './component/profile-form/AddEducation';
 import PrivateRoute from "./component/routing/PrivateRoute";
+
 
 // setting the x-auth-token headers
 if (localStorage.token) {
@@ -47,6 +50,8 @@ const App = () => {
                 path="/edit-profile"
                 component={EditProfile}
               />
+              <PrivateRoute exact path="/add-experience" component={AddExperience} />
+              <PrivateRoute exact path="/add-education" component={AddEducation} />
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
             </Switch>
