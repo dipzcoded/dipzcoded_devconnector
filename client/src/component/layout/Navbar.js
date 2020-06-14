@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { logOut } from "../../actions/auth";
 
-const Navbar = ({ auth: { isAuthenticated, isLoading }, logOut }) => {
+const Navbar = ({ auth: { isAuthenticated, isloading }, logOut }) => {
   const onClick = (e) => {
     logOut();
   };
@@ -12,7 +12,7 @@ const Navbar = ({ auth: { isAuthenticated, isLoading }, logOut }) => {
   const guestLinks = (
     <ul>
       <li>
-        <a href="#!">Developers</a>
+        <Link to="/profiles">Developers</Link>
       </li>
       <li>
         <Link to="/register">Register</Link>
@@ -25,6 +25,10 @@ const Navbar = ({ auth: { isAuthenticated, isLoading }, logOut }) => {
 
   const authLinks = (
     <ul>
+      <li>
+        <Link to="/profiles">Developers</Link>
+      </li>
+
       <li>
         <Link to="/dashboard">
           {" "}
@@ -50,7 +54,7 @@ const Navbar = ({ auth: { isAuthenticated, isLoading }, logOut }) => {
           <i className="fas fa-code" /> Devconnector{" "}
         </Link>
       </h1>
-      {isAuthenticated && !isLoading ? authLinks : guestLinks}
+      {isAuthenticated && !isloading ? authLinks : guestLinks}
     </nav>
   );
 };
