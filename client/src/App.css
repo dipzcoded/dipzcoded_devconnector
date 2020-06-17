@@ -372,6 +372,7 @@ button {
     "about about"
     "exp edu"
     "github github";
+
   grid-gap: 1rem;
 }
 
@@ -399,6 +400,7 @@ button {
 
 .profile-about {
   grid-area: about;
+
   text-align: center;
 }
 
