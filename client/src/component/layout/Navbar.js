@@ -30,6 +30,13 @@ const Navbar = ({ auth: { isAuthenticated, isloading }, logOut }) => {
       </li>
 
       <li>
+        <Link to="/posts">
+          {" "}
+          <span className="hide-sm">Posts</span>
+        </Link>
+      </li>
+
+      <li>
         <Link to="/dashboard">
           {" "}
           <i className="fas fa-user" />{" "}

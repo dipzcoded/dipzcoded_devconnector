@@ -20,6 +20,8 @@ import AddEducation from "./component/profile-form/AddEducation";
 import PrivateRoute from "./component/routing/PrivateRoute";
 import Profiles from "./component/profiles/Profiles";
 import Profile from "./component/profile/Profile";
+import Posts from "./component/Posts/Posts";
+import Post from "./component/Post/Post";
 
 // setting the x-auth-token headers
 if (localStorage.token) {
@@ -61,6 +63,8 @@ const App = () => {
                 path="/add-education"
                 component={AddEducation}
               />
+              <PrivateRoute exact path="/posts" component={Posts} />
+              <PrivateRoute exact path="/posts/:id" component={Post} />
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/profiles" component={Profiles} />
