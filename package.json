@@ -12,7 +12,7 @@
   },
   "author": "AKerele Oladipupo",
   "license": "MIT",
-  "dependencies": {
+  "dependencies": { 
     "axios": "^0.19.2",
     "bcryptjs": "^2.4.3",
     "config": "^3.3.1",

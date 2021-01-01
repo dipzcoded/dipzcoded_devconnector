@@ -18,21 +18,21 @@ const EditProfile = ({ profile: { profile }, createProfile, history }) => {
         social,
       } = profile;
 
-      const skillValue = skills.join(",");
+      const skillValue = skills ? skills.join(",") : "";
 
       setEditProfileData({
-        company,
-        website,
-        location,
-        status,
+        company: !company ? "" : company,
+        website: !website ? "" : website,
+        location: !location ? "" : location,
+        status: !status ? "" : status,
         skills: skillValue,
-        githubusername,
-        bio,
-        twitter: social.twitter,
-        facebook: social.facebook,
-        linkedin: social.linkedin,
-        youtube: social.youtube,
-        instagram: social.instagram,
+        githubusername: !githubusername ? "" : githubusername,
+        bio: !bio ? "" : bio,
+        twitter: !social ? "" : social.twitter,
+        facebook: !social ? "" : social.facebook,
+        linkedin: !social ? "" : social.linkedin,
+        youtube: !social ? "" : social.youtube,
+        instagram: !social ? "" : social.instagram,
       });
     }
   }, [profile]);
